@@ -31,3 +31,18 @@ istioctl install (instala o core default vide https://istio.io/latest/docs/setup
 
 3. Configurando o Sidecar proxy
 kubectl label namespace default istio-injection=enabled
+
+4. Configurando add-ons
+* Na documentação do istio, vide View the dashboard, clique no link several (https://istio.io/latest/docs/ops/integrations/) é possível ver que temos diversos add-ons que podemos configurar.
+
+Na explicação do video ao clicar no link several foi redirecionado para um link no github (http://github.com/istio/istio) mas especificamente nesse link que caiu (https://github.com/istio/istio/tree/release-1.9/samples/addons) porem, para a versão do istio que estou utilizando, o certo é esse link (https://github.com/istio/istio/tree/release-1.16/samples/addons)
+
+De posse dos yamls do link acima, ele entrou em um arquivo yaml, clicou na opção Raw e copiou o link e executou o comando
+
+kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.16/samples/addons/prometheus.yaml
+kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.16/samples/addons/kiali.yaml
+kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.16/samples/addons/jaeger.yaml
+kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.16/samples/addons/grafana.yaml
+
+* Abrindo o dashboard kiali
+istioctl dashboard kiali
