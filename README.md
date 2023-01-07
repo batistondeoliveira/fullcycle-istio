@@ -48,3 +48,12 @@ kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.16/samp
 istioctl dashboard kiali
 
 while true;do curl http://localhost:8000; echo; sleep 0.5; done;
+
+5. Deploy Canario
+https://istio.io/latest/docs/tasks/traffic-management/circuit-breaking/
+
+Fortio:
+
+https://raw.githubusercontent.com/istio/istio/release-1.16/samples/httpbin/sample-client/fortio-deploy.yaml
+
+kubectl exec "$FORTIO_POD" -c fortio -- fortio load -c 2 -qps 0 -t 200s -loglevel Warning http://nginx-service:8000
