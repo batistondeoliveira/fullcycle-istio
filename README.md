@@ -46,3 +46,5 @@ kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.16/samp
 
 * Abrindo o dashboard kiali
 istioctl dashboard kiali
+
+while true;do curl http://localhost:8000; echo; sleep 0.5; done;
