@@ -65,3 +65,8 @@ curl --header "x-user: wesley" http://nginx-service:8000
 7. Fault Injection
 https://istio.io/latest/docs/tasks/traffic-management/fault-injection/
 
+8. Configurando domains (Ultimo video do curso)
+cat /etc/hosts
+
+adiciona 
+127.0.0.1 a.fullcycle b.fullcycle
