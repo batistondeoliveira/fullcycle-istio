@@ -1,0 +1,13 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: circuit-breaker-servicex
+spec:
+  host: servicex-service.default.svc.cluster.local
+  trafficPolicy:
+    outlierDetection:
+      # consecutive5xxErrors: 20 #pega todos os tipos de erro 500 inclusive o proprio erro 500 q é erro internal
+      consecutiveGatewayErrors: 10 #pega somente erros de timeout 502, 503, 504 - pega 10 erros no periodo de 20s e espera por 30s até a proxima requisição      
+      interval: 20s
+      baseEjectionTime: 30s
+      maxEjectionPercent: 100
