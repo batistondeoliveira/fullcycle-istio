@@ -61,3 +61,7 @@ kubectl exec "$FORTIO_POD" -c fortio -- fortio load -c 2 -qps 0 -t 200s -logleve
 6. Testar o consistent-hash.
 Entre dentro de um pod e execute
 curl --header "x-user: wesley" http://nginx-service:8000
+
+7. Fault Injection
+https://istio.io/latest/docs/tasks/traffic-management/fault-injection/
+
